@@ -20,7 +20,8 @@ export function GET() {
   const { value } = token;
   const SECRET = process.env.NEXT_PUBLIC_JWT_SECRET || "";
   try {
-    verify(value, SECRET);
+    const verified = verify(value, SECRET);
+    // { username: 'admin', iat: 1703674160, exp: 1706266160 }
 
     const response = {
       user: "Super Top Secret User",
